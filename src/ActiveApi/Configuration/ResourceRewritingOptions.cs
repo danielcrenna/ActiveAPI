@@ -5,11 +5,9 @@ using ActiveRoutes;
 
 namespace ActiveApi.Configuration
 {
-	public class CanonicalRoutesOptions : IFeatureToggle
+	public class ResourceRewritingOptions : IFeatureToggle
 	{
 		public bool Enabled { get; set; } = true;
-		public bool LowercaseUrls { get; set; } = true;
-		public bool LowercaseQueryStrings { get; set; } = false;
-		public bool AppendTrailingSlash { get; set; } = true;
+		public string ActionHeader { get; set; } = HttpHeaders.Action;
 	}
 }
