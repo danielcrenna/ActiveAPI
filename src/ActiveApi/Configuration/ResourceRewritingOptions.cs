@@ -7,7 +7,7 @@ namespace ActiveApi.Configuration
 {
 	public class ResourceRewritingOptions : IFeatureToggle
 	{
-		public bool Enabled { get; set; } = true;
 		public string ActionHeader { get; set; } = HttpHeaders.Action;
+		public bool Enabled { get; set; } = true;
 	}
 }

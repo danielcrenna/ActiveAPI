@@ -12,14 +12,20 @@ namespace ActiveApi
 {
 	public static partial class Add
 	{
-		public static IServiceCollection AddCanonicalRoutes(this IServiceCollection services, IConfiguration config) => services.AddCanonicalRoutes(config.Bind);
-		public static IServiceCollection AddCanonicalRoutes(this IServiceCollection services, Action<CanonicalRoutesOptions> configureAction = null)
+		public static IServiceCollection AddCanonicalRoutes(this IServiceCollection services, IConfiguration config)
 		{
-			if(configureAction != null)
+			return services.AddCanonicalRoutes(config.Bind);
+		}
+
+		public static IServiceCollection AddCanonicalRoutes(this IServiceCollection services,
+			Action<CanonicalRoutesOptions> configureAction = null)
+		{
+			if (configureAction != null)
 				services.Configure(configureAction);
 
 			// inbound
-			services.AddSingleton(r => new CanonicalRoutesResourceFilter(r.GetRequiredService<IOptionsSnapshot<CanonicalRoutesOptions>>()));
+			services.AddSingleton(r =>
+				new CanonicalRoutesResourceFilter(r.GetRequiredService<IOptionsSnapshot<CanonicalRoutesOptions>>()));
 
 			// outbound
 			services.AddOptions<RouteOptions>().Configure<IOptionsSnapshot<CanonicalRoutesOptions>>((o, x) =>

@@ -7,14 +7,10 @@ namespace ActiveApi.Configuration
 {
 	public class MethodOverrideOptions : IFeatureToggle
 	{
-		public bool Enabled { get; set; } = true;
 		public string MethodOverrideHeader { get; set; } = HttpHeaders.MethodOverride;
 
-		public string[] AllowedMethodOverrides { get; set; } =
-		{
-			HttpMethods.Delete, 
-			HttpMethods.Head, 
-			HttpMethods.Put
-		};
+		public string[] AllowedMethodOverrides { get; set; } = {HttpMethods.Delete, HttpMethods.Head, HttpMethods.Put};
+
+		public bool Enabled { get; set; } = true;
 	}
 }
