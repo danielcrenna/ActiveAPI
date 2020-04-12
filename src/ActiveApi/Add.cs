@@ -16,7 +16,7 @@ namespace ActiveApi
 			services.AddSingleton(r => new CanonicalRoutesResourceFilter(r.GetRequiredService<IOptionsSnapshot<CanonicalRoutesOptions>>()));
 
 			// outbound
-			services.AddOptions<RouteOptions>().Configure<IOptions<CanonicalRoutesOptions>>((o, x) =>
+			services.AddOptions<RouteOptions>().Configure<IOptionsSnapshot<CanonicalRoutesOptions>>((o, x) =>
 			{
 				o.AppendTrailingSlash = x.Value.AppendTrailingSlash;
 				o.LowercaseUrls = x.Value.LowercaseUrls;
