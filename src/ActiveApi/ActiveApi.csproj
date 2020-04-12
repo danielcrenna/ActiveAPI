@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="ActiveRoutes" Version="1.0.11" />
+    <PackageReference Include="ActiveRoutes" Version="1.0.13" />
   </ItemGroup>
 
 </Project>
