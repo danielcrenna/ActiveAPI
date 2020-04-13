@@ -10,7 +10,9 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="ActiveLogging" Version="1.0.3" />
     <PackageReference Include="ActiveRoutes" Version="1.0.13" />
+    <PackageReference Include="Sodium.Core" Version="1.2.3" />
   </ItemGroup>
 
 </Project>
